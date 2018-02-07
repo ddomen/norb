@@ -1,6 +1,6 @@
 {
   "name": "norb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "node or browser: detect if the script is running on node or in a browser",
   "main": "norb.js",
   "scripts": {
