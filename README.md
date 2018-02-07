@@ -1,5 +1,10 @@
 # Norb
-Node OR Browser: detect if the script is running on node or in a browser
+[![License](https://img.shields.io/badge/License-MIT-1a237e.svg)](./LICENSE)
+[![Email](https://img.shields.io/badge/Contact-email-00897b.svg)](mailto:daniele.domenichelli.5+ddomen@gmail.com)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-4caf50.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=6QCNG6UMSRCPC&lc=GB&item_name=ddomen&item_number=aoop&no_note=0&cn=Add%20a%20message%3a&no_shipping=2&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
+[![Donate](https://img.shields.io/badge/Donate-bitcoin-4caf50.svg)](https://blockchain.info/payment_request?address=1FTkcYbdwsHEbJBS3c1xD62KKCKskT14AE&amount_local=5&currency=EUR&nosavecurrency=true&message=ddomen%20software)
+**Node OR Browser**
+detect if the script is running on node or in a browser
 
 ## Getting Started
 ### Installing
@@ -48,3 +53,14 @@ Enclose and import a Browser module, like it would be a Node module.
 Require a Node module, like it would be a Browser module. In Browser the method is async so you must define a callback for take the module result; you can autoassign the module to the `window[name]`. *(?)* In the Browser context you have to assign a `name?` that will point to `window[name]` object; the `mode?` help to decide in which way the object will be overwritten can be 0: *( preservative )* that preserve the original `window[name]` if present, 1: *( overwrite )* that overwrite anyway, 2: *( merge )* that merge both object.
 
 * NB Browser doesn't support system API and Node doesn't support some of the Broswer API
+
+
+## Contacts
+If you like the project feel free to contact me on my [![Email](https://img.shields.io/badge/Contact-email-00897b.svg)](mailto:daniele.domenichelli.5+ddomen@gmail.com).
+
+Something gone wrong? Feel free to rise an issue!
+
+Did you like this project and it was usefull? Help me improve my work:
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-4caf50.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=6QCNG6UMSRCPC&lc=GB&item_name=ddomen&item_number=aoop&no_note=0&cn=Add%20a%20message%3a&no_shipping=2&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
+[![Donate](https://img.shields.io/badge/Donate-bitcoin-4caf50.svg)](https://blockchain.info/payment_request?address=1FTkcYbdwsHEbJBS3c1xD62KKCKskT14AE&amount_local=5&currency=EUR&nosavecurrency=true&message=ddomen%20software)
