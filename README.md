@@ -14,11 +14,11 @@ This library is easy to install by cloning the repo or installing it through npm
 
 Local installation
 ```
-npm install aoop
+npm install norb
 ```
 Global installation
 ```
-npm install -g aoop
+npm install -g norb
 ```
 
 ## Usage
