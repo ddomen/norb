@@ -24,7 +24,7 @@ npm install -g aoop
 ## Usage
 * **Require Node**
 ```javascript
-const norb = require('norb');
+const norb = require('norb')(module);
 //{
 //  isNode:boolean (true),
 //  isBrowser:boolean (false),
@@ -42,7 +42,7 @@ const norb = require('norb');
 * **isNode** *[Boolean]*: `true` if running in node
 * **isBrowser** *[Boolean]*: `true` if running in browser
 * **export**  `export(Object, name?, mode?)`
-This method allow to export an object in the correct way, independant if the code is in a Node or a Browser environment. *(?)* In the Browser context you have to assign a `name?` that will point to `window[name]` object; the `mode?` help to decide in which way the object will be overwritten can be 0: *( preservative )* that preserve the original `window[name]` if present, 1: *( overwrite )* that overwrite anyway, 2: *( merge )* that merge both object.
+This method allow to export an object in the correct way, independant if the code is in a Node or a Browser environment. *(?)* In the Browser context you have to assign a `name?` that will point to `window[name]` object; the `mode?` help to decide in which way the object will be overwritten can be 0: *( conserve )* that preserve the original `window[name]` if present, 1: *( overwrite )* that overwrite anyway, 2: *( merge )* that merge both object.
 
 * NB Browser doesn't support system API and Node doesn't support some of the Broswer API
 
@@ -52,9 +52,37 @@ Enclose and import a Browser module, like it would be a Node module.
 * NB Browser doesn't support system API and Node doesn't support some of the Broswer API
 
 * **require** `require(path, [name?, mode?,] callback)`
-Require a Node module, like it would be a Browser module. In Browser the method is async so you must define a callback for take the module result; you can autoassign the module to the `window[name]`. *(?)* In the Browser context you have to assign a `name?` that will point to `window[name]` object; the `mode?` help to decide in which way the object will be overwritten can be 0: *( preservative )* that preserve the original `window[name]` if present, 1: *( overwrite )* that overwrite anyway, 2: *( merge )* that merge both object.
+Require a Node module, like it would be a Browser module. In Browser the method is async so you must define a callback for take the module result; with `name` parameter you can autoassign the module to the `window[name]`. *(?)* In the Browser context you have to assign a `name?` that will point to `window[name]` object; the `mode?` help to decide in which way the object will be overwritten can be 0: *( conserve )* that preserve the original `window[name]` if present, 1: *( overwrite )* that overwrite anyway, 2: *( merge )* that merge both object.
 
 * NB Browser doesn't support system API and Node doesn't support some of the Broswer API
+
+## Example
+File mymodule.js
+```javascript
+//Module to be exported
+const norb = require('norb')(module);
+
+var export = {};
+export.test = function(){console.log('sample function for testing')};
+
+norb.export(export,'myModule');
+```
+File index.html (Browser)
+```html
+...
+<script src="./norb.js"></script>
+<script>
+  norb.require('./mymodule.js',(module)=>module.test());   // "sample function for testing"
+</script>
+...
+```
+File node.js (Node)
+```javascript
+const norb = require('norb')(module);
+const myModule = norb.require('./mymodule');
+
+myModule.test();  // "sample function for testing"
+```
 
 
 ## Contacts
